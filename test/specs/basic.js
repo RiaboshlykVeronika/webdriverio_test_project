@@ -1,6 +1,11 @@
 const SignUpPage = require('../pageobjects/signup.page');
 const SignInPage = require('../pageobjects/signin.page');
 const MainPage = require('../pageobjects/main.page');
+const PricingPage = require('../pageobjects/pricing.page');
+const ExplorePage = require('../pageobjects/explore.page');
+const EnterprisePage = require('../pageobjects/enterprise.page');
+const CareersPage = require('../pageobjects/careers.page');
+
 
 describe('My SignUp application', () => {
     it('should login with valid credentials', async () => {
@@ -43,15 +48,50 @@ describe('My SignIn application', () => {
     });
 });
 
-describe.only('Main page', () => {
-    it('show Product dropdown', async () => {
+describe('Main page', () => {
+    it('show dropdown', async () => {
         browser.url('https://github.com/');
-		await browser.pause(5000);
+		await browser.pause(3000);
         await MainPage.showProductDropdown();
         await MainPage.showExploreDropdown();
         await MainPage.showPricingDropdown();
     });
 });
+
+describe('Pricing', () => {
+    it('join for free plan', async () => {
+        browser.url('https://github.com/');
+		await browser.pause(3000);
+        await PricingPage.joinForFree();
+    });
+});
+
+describe('Explore', () => {
+    it('explore topics', async () => {
+        browser.url('https://github.com/');
+		await browser.pause(3000);
+        await ExplorePage.exploreTopic();
+    });
+});
+
+describe('Enterprise', () => {
+    it('start trial', async () => {
+        browser.url('https://github.com/');
+		await browser.pause(3000);
+        await EnterprisePage.startTrial();
+    });
+});
+
+describe.only('Careers', () => {
+    it('show open positions', async () => {
+        browser.url('https://github.com/');
+		await browser.pause(3000);
+        await CareersPage.showOpenPositions();
+    });
+});
+
+
+
 
 
 
